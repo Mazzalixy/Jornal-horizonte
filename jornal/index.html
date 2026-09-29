@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jornal Horizonte - informação que conecta você ao mundo.">
+  <title>Jornal Horizonte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600..800&family=Lexend:wght@300..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="container barra-inner">
+      <a class="marca" href="#inicio"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 4H28L36 12V28a4 4 0 0 1-4 4H16L8 38V32H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4Z" fill="#3DDC97"/><path d="M28 4V12H36Z" fill="#FFC93C"/><g fill="none" stroke="#0B1F4A" stroke-width="2.6" stroke-linecap="round"><path d="M15.5 22.5A5 5 0 0 1 22.5 22.5"/><path d="M11.9 18.9A10 10 0 0 1 26.1 18.9"/><path d="M8.4 15.4A15 15 0 0 1 29.6 15.4"/></g><circle cx="19" cy="26.5" r="2.2" fill="#0B1F4A"/></svg><h1>Horizonte<small>Jornal</small></h1></a>
+      <button class="menu-mobile" id="menuMobile" aria-expanded="false" aria-controls="linksMenu">☰ Menu</button>
+      <nav class="links-menu" id="linksMenu">
+        <a href="#inicio">Início</a>
+        <a href="#noticias" data-filtro="Todas" aria-current="page">Todas</a>
+        <a href="#noticias" data-filtro="Esportes">Esportes</a>
+        <a href="#noticias" data-filtro="Cultura">Cultura</a>
+        <a href="#noticias" data-filtro="Eventos">Eventos</a>
+        <a href="#noticias" data-filtro="Opinião">Opinião</a>
+      </nav>
+      <label class="busca-topo">
+        <span class="sr-only">Buscar notícias</span>
+        <input id="campoBusca" type="search" placeholder="Buscar notícias...">
+        <span aria-hidden="true">⌕</span>
+      </label>
+      <button class="btn-tema" id="btnTema" aria-label="Alternar modo escuro">🌙 Modo escuro</button>
+    </div>
+  </header>
+  <div class="container subfaixa"><span id="dataEdicao"></span><span>Informação que conecta você ao mundo.</span></div>
+
+  <main>
+    <div class="container layout-jornal">
+      <div class="coluna-principal">
+        <section class="hero" id="inicio" aria-label="Notícia em destaque">
+          <div class="carrossel" id="carrossel"></div>
+          <div class="pontos" id="pontos"></div>
+          <div class="controles">
+            <button id="anterior" aria-label="Notícia anterior">‹</button>
+            <button id="proximo" aria-label="Próxima notícia">›</button>
+          </div>
+        </section>
+
+        <section class="noticias-section" id="noticias">
+          <div class="secao-titulo">
+            <h2>Últimas notícias</h2>
+          </div>
+          <select id="filtroCategoria" hidden aria-label="Filtrar por categoria">
+            <option value="Todas">Todas as categorias</option>
+            <option value="Notícias">Notícias</option>
+            <option value="Escola">Escola</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Esportes">Esportes</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Entrevistas">Entrevistas</option>
+            <option value="Eventos">Eventos</option>
+            <option value="Opinião">Opinião</option>
+          </select>
+          <div class="grid-noticias" id="listaNoticias"></div>
+          <p class="sem-resultados" id="semResultados">Nenhuma notícia encontrada. Tente outra palavra ou categoria.</p>
+        </section>
+      </div>
+      <aside class="painel-avisos" aria-labelledby="tituloAvisos">
+        <span class="avisos-etiqueta">Mural escolar</span>
+        <h2 id="tituloAvisos">Avisos rápidos</h2>
+        <div class="avisos-lista" id="listaAvisos" aria-live="polite"></div>
+      </aside>
+    </div>
+
+    <section class="container mosaico-section" id="eventos">
+      <div class="secao-titulo"><h2>Campeonatos e eventos</h2></div>
+      <div class="mosaico" id="mosaico"></div>
+    </section>
+
+    <section class="container sobre" id="contato">
+      <div>
+        <h2>Contato</h2>
+        <p>Coloque aqui o contato do grupo, da escola ou dos responsáveis pelo jornal.</p>
+      </div>
+      <div class="contato-card">
+        <p><strong>E-mail:</strong> coloque-seu-email@exemplo.com</p>
+        <p><strong>Instagram:</strong> @seu_jornal</p>
+        <p><strong>Escola:</strong> Nome da escola</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Horizonte · Jornal</strong>
+      <span>Projeto escolar · <span id="ano"></span></span>
+      <a href="#" id="abrirAdmin">Área do grupo</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-conteudo">
+      <button class="fechar" id="fecharModal" aria-label="Fechar">×</button>
+      <div id="conteudoModal"></div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/blocos.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
